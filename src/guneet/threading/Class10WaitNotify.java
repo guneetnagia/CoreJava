@@ -7,17 +7,17 @@ public class Class10WaitNotify {
 		Processors process = new Processors();
 		Thread t1 = new Thread(new Runnable() {
 			public void run() {
-				
-					try {
-						process.producer();
-					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-				
+
+				try {
+					process.producer();
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+
 			}
 		});
-		
+
 		Thread t2 = new Thread(new Runnable() {
 			public void run() {
 				try {
@@ -28,7 +28,7 @@ public class Class10WaitNotify {
 				}
 			}
 		});
-		
+
 		t1.start();t2.start();t1.join();t2.join();
 	}
 }
@@ -41,7 +41,7 @@ class Processors {
 			System.out.println("Locked again");
 		}
 	}
-	
+
 	public void consumer() throws InterruptedException{
 		Scanner scan = new Scanner(System.in);
 		Thread.sleep(2000);
