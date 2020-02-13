@@ -7,18 +7,19 @@ import java.io.ObjectInputStream;
 import java.io.Serializable;
 
 public class DeserializeObject {
-	public static void printdata(Emp object1) 
+	public static void printdata(Contractors object1) 
 	{ 
 		System.out.println("A = " + object1.A); 
 		System.out.println("B = " + object1.B); 
 		System.out.println("C = " + Emp.C); 
 		System.out.println("D = " + object1.D); 
+		System.out.println("E = " + object1.E);
 	} 
 	public static void main(String aaa[]){
 		try {
 			FileInputStream fis = new FileInputStream("E:\\GitProjects\\Java\\core\\CoreJava\\text.txt");
 			ObjectInputStream ois = new ObjectInputStream(fis);
-			Emp emp2 = (Emp) ois.readObject();
+			Contractors emp2 = (Contractors) ois.readObject();
 			printdata(emp2);
 			ois.close();
 			fis.close();

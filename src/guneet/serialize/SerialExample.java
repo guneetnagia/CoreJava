@@ -1,3 +1,11 @@
+/*
+ * Child class is automatically serialized,if parent is serialized, vice-versa not possible
+ * only non static variables are serialized
+ * transient data member and static data member are not saved in serialization
+ * constructor of object is never called if an object is deserialized
+ * Must implement serialization
+ */
+
 package guneet.serialize;
 
 import java.io.FileNotFoundException;
@@ -9,7 +17,7 @@ import java.io.Serializable;
 public class SerialExample {
 	public static void main(String aaa[]){
 		
-		Emp emp1 = new Emp(10, 20, 30, 40);
+		Contractors emp1 = new Contractors(10, 20, 30, 40, 50);
 		
 		try {
 			FileOutputStream fos = new FileOutputStream("E:\\GitProjects\\Java\\core\\CoreJava\\text.txt");
@@ -27,13 +35,14 @@ public class SerialExample {
 		}
 		
 	}
-	public static void printdata(Emp object1) 
+	public static void printdata(Contractors object1) 
 	{ 
 
 		System.out.println("A = " + object1.A); 
 		System.out.println("B = " + object1.B); 
 		System.out.println("C = " + Emp.C); 
 		System.out.println("D = " + object1.D);
+		System.out.println("E = " + object1.E);
 	} 
 }
 
@@ -52,4 +61,14 @@ class Emp implements Serializable{
 		Emp.C = C;
 		this.D = D;
 	}
+}
+
+class Contractors extends Emp{
+	int E;
+	public Contractors(int A, int B, int C, int D, int E) {
+		super(A, B, C, D);
+		this.E = E;
+	}
+	//private static final long serialVersionUID = -7379038688377297197L;
+	
 }
