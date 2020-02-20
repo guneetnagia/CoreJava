@@ -11,7 +11,7 @@ public class DeserializeObject {
 	{ 
 		System.out.println("A = " + object1.A); 
 		System.out.println("B = " + object1.B); 
-		System.out.println("C = " + Emp.C); 
+		System.out.println("C = " + Emp1.C); 
 		System.out.println("D = " + object1.D); 
 		System.out.println("E = " + object1.E);
 	} 
@@ -37,17 +37,21 @@ public class DeserializeObject {
 }
 
 
-class Emp implements Serializable{
-	private static final long serialversionUID  = 9L;
+class Emp1 implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	int A;
 	int B;
 	static int C;
 	transient int D;
 
-	public Emp(int A,int B, int C, int D){
+	public Emp1(int A,int B, int C, int D){
 		this.A = A;
 		this.B = B;
-		Emp.C = C;
+		Emp1.C = C;
 		this.D = D;
 	}
 }
