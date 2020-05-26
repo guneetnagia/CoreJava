@@ -5,84 +5,81 @@ package guneet.collection.que;
  *  
  */
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
-/*	MyCircularQueue(k): Constructor, set the size of the queue to be k.
-	Front: Get the front item from the queue. If the queue is empty, return -1.
-	Rear: Get the last item from the queue. If the queue is empty, return -1.
-	enQueue(value): Insert an element into the circular queue. Return true if the operation is successful.
-	deQueue(): Delete an element from the circular queue. Return true if the operation is successful.
-	isEmpty(): Checks whether the circular queue is empty or not.
-	isFull(): Checks whether the circular queue is full or not.*/
-
-
-class MyCircularQueue<E>{
-	E[] list;
-	int front, rear;
-	int size;
-	int currentSize;
-	MyCircularQueue(int maxSize){
-		size = maxSize;
-		list = (E[]) new Object[maxSize];
+class MyCircularQueue{
+	int[] list;
+	int rear, front, maxSize;
+	/** Initialize your data structure here. Set the size of the queue to be k. */
+	public MyCircularQueue(int k) {
+		maxSize = k;
+		list = new int[k];
 		front = -1;
-		rear=-1;
-		currentSize=0;
+		rear = -1;
 	}
-	@Override
-	public String toString(){
-		return Arrays.toString(list);
-	}
-	public Boolean isEmpty(){
-		return (currentSize == 0);
-	}
-	public Boolean isFull(){
-		return currentSize == list.length;
-	}
-	public void enQueue(E value) throws Exception{
+
+	/** Insert an element into the circular queue. Return true if the operation is successful. */
+	public boolean enQueue(int value) {
 		if(isFull()){
-			throw new Exception("Queue is full");
+			return false;
 		}
-		else{
-			rear  = (rear+1)%list.length;
-			list[rear] = value;
-			currentSize++;
-			if(front == -1){
-				front = rear;
-			}
-		}
-	}
-	public E deQueue() throws Exception{
-		E currentVal;
 		if(isEmpty()){
-			throw new Exception("Queue is Empty");
+			front = 0;
 		}
-		else{
-			currentVal = list[front];
-			list[front] = null;
-			front = (front+1)%list.length;
-			currentSize--;
+		rear = (rear+1)%maxSize;
+		list[rear] = value;
+		return true;
+	}
+
+	/** Delete an element from the circular queue. Return true if the operation is successful. */
+	public boolean deQueue() {
+		if(isEmpty()){
+			return false;
 		}
-		return currentVal;
+		if(front == rear){
+			front = -1;
+			rear = -1;
+			return true;
+		}
+		front = (front+1)%maxSize;
+		return true;
+	}
+
+	/** Get the front item from the queue. */
+	public int Front() {
+		if(isEmpty()){
+			return -1;
+		}
+		return list[front];
+	}
+
+	/** Get the last item from the queue. */
+	public int Rear() {
+		if(isFull()){
+			return -1;
+		}
+		return list[rear];
+	}
+
+	/** Checks whether the circular queue is empty or not. */
+	public boolean isEmpty() {
+		return (front == -1);
+	}
+
+	/** Checks whether the circular queue is full or not. */
+	public boolean isFull() {
+		return ((rear+1) % maxSize == front);
 	}
 
 	public static void main(String args[]) throws Exception{
-		MyCircularQueue<Integer> obj = new MyCircularQueue<Integer>(8);
-		obj.enQueue(15);
-		obj.enQueue(16);
-		obj.enQueue(17);
-		obj.enQueue(18);
-		obj.enQueue(19);
-		obj.enQueue(20);
-		obj.enQueue(21);
-		obj.enQueue(22);
-		System.out.println("Full Circular Queue" + obj);
-
-       System.out.print("Dequeued following element from circular Queue ");
-       System.out.println(obj.deQueue() + " ");
-       obj.enQueue(23);
-        System.out.println("After enqueueing circular queue with element having value 23");
-        System.out.println(obj);
+		MyCircularQueue circularQueue = new MyCircularQueue(8);
+		System.out.println(circularQueue.enQueue(1));  // return true
+		System.out.println(circularQueue.enQueue(2));  // return true
+		System.out.println(circularQueue.enQueue(3));  // return true
+		System.out.println(circularQueue.enQueue(4));  // return false, the queue is full
+		System.out.println(circularQueue.Rear());  // return 3
+		System.out.println(circularQueue.isFull());  // return true
+		System.out.println(circularQueue.deQueue());  // return true
+		System.out.println(circularQueue.enQueue(4));  // return true
+		System.out.println(circularQueue.Rear());  // return 4
+		
 	}
 }
