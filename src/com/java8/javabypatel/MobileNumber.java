@@ -1,17 +1,17 @@
 package com.java8.javabypatel;
 
 public class MobileNumber {
-	private String number;
+	private Long number;
 	
-	public MobileNumber(String number) {
+	public MobileNumber(Long number) {
         this.number = number;
     }
 
-    public String getNumber() {
+    public Long getNumber() {
         return number;
     }
 
-    public void setNumber(String number) {
+    public void setNumber(Long number) {
         this.number = number;
     }
 }

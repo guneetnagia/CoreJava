@@ -1,17 +1,17 @@
 package com.java8.javabypatel;
 
 public class Address {
-	private String zipcode;
+	private Long zipcode;
 	
-	public Address(String zipcode) {
+	public Address(Long zipcode) {
         this.zipcode = zipcode;
     }
 
-    public String getZipcode() {
+    public Long getZipcode() {
         return zipcode;
     }
 
-    public void setZipcode(String zipcode) {
+    public void setZipcode(Long zipcode) {
         this.zipcode = zipcode;
     }
 }
