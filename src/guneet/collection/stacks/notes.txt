@@ -6,3 +6,6 @@ A. Push, Pop, Peek
 
 Q. ways to implement?
 A. Array (limited size), LinkedList (overhead of allocation, link, unlink, deallocate)
+
+Q. Use case
+A. 1. Compiler uses the bracket check using stacks
