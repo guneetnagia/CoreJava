@@ -16,13 +16,16 @@ public class StackArray {
 		}
 	}
 	
-	public void pop(){
+	public int pop(){
 		if(!isEmpty()){
 			top--;
+			int temp = stack[top];
 			stack[top] = 0;
+			return temp;
 		}
 		else{
 			System.out.println("Queue is Empty");
+			return 0;
 		}
 	}
 	
