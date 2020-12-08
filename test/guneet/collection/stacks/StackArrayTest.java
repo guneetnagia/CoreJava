@@ -15,6 +15,7 @@ public class StackArrayTest {
 		assertEquals(true, arr.isEmpty());
 		arr.push(1);
 		arr.push(3);
+		assertEquals(false, arr.isFull());
 		arr.push(5);
 		arr.push(7);
 		assertEquals(false, arr.isEmpty());
