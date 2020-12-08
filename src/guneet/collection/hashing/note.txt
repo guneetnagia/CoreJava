@@ -1,0 +1,8 @@
+Q. what is Hashing?
+
+Q. What is hash function?
+A. Hash function takes long number or string and maps to smaller integer that can be used as index of hash table.
+
+Q. What is hash table?
+
+Q. Hash code linked to index?
