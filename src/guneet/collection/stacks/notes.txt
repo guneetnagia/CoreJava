@@ -1,11 +1,14 @@
 Q. What is stack?
-A. Last In First Out. A linear data structure where insertion and deletion takes place at one end called top of the stack.
+A. Last In First Out. 
+	Linear data structure where insertion and deletion takes place at one end called top of the stack.
 
 Q. Important functions
-A. Push, Pop, Peek
+A. Push, Pop, Peek, isEmpty
 
 Q. ways to implement?
 A. Array (limited size), LinkedList (overhead of allocation, link, unlink, deallocate)
 
 Q. Use case
-A. 1. Compiler uses the bracket check using stacks
+A.  1. Compiler uses the bracket check using stacks
+	2. Reverse a string, 
+	3. undoing a command
