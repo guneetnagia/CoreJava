@@ -13,6 +13,6 @@ public class Example8 {
 		 //System.out.println(pathToFile.toAbsolutePath());
 		 Stream<String> lines = Files.lines(pathToFile);
 		 lines.sorted().filter(x->x.length()>13).forEach(System.out::println);
-		 
+		 lines.close();
 	}
 }
