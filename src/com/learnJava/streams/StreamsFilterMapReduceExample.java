@@ -10,5 +10,9 @@ public class StreamsFilterMapReduceExample {
     	   System.out.println(StudentDataBase.getAllStudents().stream()
     	   .map(Student::getNoteBooks)
     	   .reduce(0,(a,b)->a+b));
+    	   
+    	   System.out.println(StudentDataBase.getAllStudents().stream()
+    	    	   .map(Student::getNoteBooks)
+    	    	   .reduce(0,Integer::sum));
     }
 }
