@@ -1,9 +1,6 @@
 package com.learnJava.streams;
 
-import com.learnJava.data.Student;
 import com.learnJava.data.StudentDataBase;
-
-import java.util.Optional;
 
 public class StreamsFindAnyFirstExample {
 
