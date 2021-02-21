@@ -11,6 +11,15 @@ public class StreamsComparatorExample {
     public static void main(String[] args) {
     	
     	StudentDataBase.getAllStudents().stream()
-    	.sorted(Comparator.comparing(Student::getName)).collect(Collectors.toList()).forEach(System.out::println);
+    	.sorted(Comparator.comparing(Student::getName))
+    	.collect(Collectors.toList()).forEach(System.out::println);
+    	
+    	StudentDataBase.getAllStudents().stream()
+    	.sorted(Comparator.comparing(Student::getGpa))
+    	.collect(Collectors.toList()).forEach(System.out::println);
+    	
+    	StudentDataBase.getAllStudents().stream()
+    	.sorted(Comparator.comparing(Student::getGpa).reversed())
+    	.collect(Collectors.toList()).forEach(System.out::println);
     }
 }
