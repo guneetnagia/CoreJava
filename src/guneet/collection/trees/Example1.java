@@ -20,6 +20,7 @@ public class Example1 {
 	}
 	
 	public static void main(String args[]){
+		//String s = new String(null);
 		Example1 tree = new Example1();
 		tree.root = new Node(1);
 		tree.root.left = new Node(2);
