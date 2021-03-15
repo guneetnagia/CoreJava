@@ -1,0 +1,7 @@
+Q. What is Queue?
+A. Linear Data structure, which follows First In First Out strategy.
+
+Q. Operations on queue?
+A. Enqueue, Dequeue, Front, Rear
+
+Q.
