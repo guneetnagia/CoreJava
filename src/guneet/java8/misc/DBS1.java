@@ -16,8 +16,6 @@ public class DBS1 {
 			return o.getId();
 		}).collect(Collectors.toList());
 		System.out.println(i);
-		
-		list.stream().filter(o->o.getId()>1).map(o->o.getId());
 	}
 }
 
