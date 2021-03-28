@@ -2,30 +2,37 @@ package com.learnJava.streams_terminal;
 
 import java.util.List;
 import java.util.Map;
-import java.util.function.Function;
 import java.util.stream.Collectors;
 
 import com.learnJava.data.Student;
 import com.learnJava.data.StudentDataBase;
+import static java.util.stream.Collectors.*;
 
 public class StreamsGroupingByExample {
 	public static void main(String aaa[]){
-		Map<String, List<Student>> map = StudentDataBase.getAllStudents()
-				.stream()
-				.collect(Collectors.groupingBy(Student::getGender));
-
-		map.forEach((k,v)->{
-			System.out.println(k+"--"+v);
-		});
-
-		System.out.println(StudentDataBase.getAllStudents()
-		.stream()
-		.collect(Collectors.groupingBy(Student::getGradeLevel, Collectors.groupingBy(Student::getGender))));
 		
-		System.out.println(StudentDataBase.getAllStudents()
+		// Simple
+		Map<String, List<Student>> map1 = StudentDataBase.getAllStudents()
 		.stream()
-		.map(Student::getActivities)
-		.flatMap(List::stream)
-		.collect(Collectors.groupingBy(Function.identity(),Collectors.counting())));
+		.collect(groupingBy(Student::getGender));
+		System.out.println(map1);
+		
+		
+		// Custom key
+		Map<String, List<Student>> map2 = 
+		StudentDataBase.getAllStudents()
+			.stream()
+				.collect(groupingBy(s -> s.getGpa() > 3.8 ? "Outstanding" : "Average"));
+		System.out.println(map2);
+		
+		// Two level grouping
+		Map<Integer, Map<String,List<Student>>> map3 =
+		StudentDataBase.getAllStudents()
+			.stream()
+				.collect(groupingBy(
+							Student::getGradeLevel,
+							groupingBy(s -> s.getGpa() > 3.8 ? "Outstanding" : "Average")
+						));
+		System.out.println(map3);
 	}
 }
