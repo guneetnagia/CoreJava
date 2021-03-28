@@ -1,59 +1,31 @@
 package com.learnJava.streams_terminal;
 
+import java.util.List;
+import java.util.Map;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+
 import com.learnJava.data.Student;
 import com.learnJava.data.StudentDataBase;
 
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.function.Predicate;
-
-import static java.util.stream.Collectors.partitioningBy;
-import static java.util.stream.Collectors.toMap;
-import static java.util.stream.Collectors.toSet;
-
 public class StreamsPartitioningExample {
+	public static void main(String aaap[]){
+		
+		Predicate<Student> gpaCheck = student -> student.getGpa()>3.8;
+		
+		Map<Boolean, List<Student>> map1 = 
+		StudentDataBase.getAllStudents()
+		.stream()
+		.collect(Collectors.partitioningBy(gpaCheck));
+		
+		System.out.println(map1);
+		
 
-    public static void partitioningBy_1(){
-
-        Predicate<Student> gpaPredicate = (student) -> student.getGpa()>=3.8;
-
-        Map<Boolean,List<Student>> studentMap = StudentDataBase.getAllStudents()
-                .stream()
-                .collect(partitioningBy(gpaPredicate));
-
-        System.out.println("studentMap : " + studentMap);
-
-    }
-
-    public static void partitioningBy_2(){
-
-        Predicate<Student> gpaPredicate = (student) -> student.getGpa()>=3.8;
-
-        Map<Boolean,Set<Student>> studentMap = StudentDataBase.getAllStudents()
-                .stream()
-                .collect(partitioningBy(gpaPredicate,toSet()));
-
-        System.out.println("studentMap : " + studentMap);
-
-    }
-
-
-    public static void partitioningBy_3(){
-
-        Predicate<Student> gpaPredicate = (student) -> student.getGpa()>=3.8;
-
-        Map<Boolean,Map<String, List<String>>> studentMap = StudentDataBase.getAllStudents()
-                .stream()
-                .collect(partitioningBy(gpaPredicate,toMap(Student::getName,Student::getActivities)));
-
-        System.out.println("studentMap : " + studentMap);
-
-    }
-
-    public static void main(String[] args) {
-        partitioningBy_1();
-        partitioningBy_2();
-        partitioningBy_3();
-    }
+		Map<Boolean, List<Long>> map2 = 
+		IntStream.range(1, 40)
+		.mapToObj(Long::new)
+		.collect(Collectors.partitioningBy(i->i%2==0));
+		System.out.println(map2);
+	}
 }

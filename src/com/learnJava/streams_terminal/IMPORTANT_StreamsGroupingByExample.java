@@ -12,7 +12,7 @@ import static java.util.stream.Collectors.*;
 
 import java.util.Comparator;
 
-public class StreamsGroupingByExample {
+public class IMPORTANT_StreamsGroupingByExample {
 	public static void main(String aaa[]){
 		
 		// Simple
