@@ -7,8 +7,10 @@ import com.learnJava.data.StudentDataBase;
 
 public class StreamsJoiningExample {
 	public static void main(String[] args) {
-		System.out.println(StudentDataBase.getAllStudents()
+		String output = StudentDataBase.getAllStudents()
 		.stream()
-		.map(Student::getName).collect(Collectors.joining("--")));
+		.map(Student::getName)
+		.collect(Collectors.joining(", "));
+		System.out.println(output);
 	}
 }
