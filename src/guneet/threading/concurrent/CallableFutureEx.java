@@ -5,7 +5,6 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
-import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
@@ -36,7 +35,7 @@ public class CallableFutureEx {
 	public static void main(String aaa[]) throws IOException, InterruptedException, ExecutionException, TimeoutException{
 		ExecutorService ex = Executors.newFixedThreadPool(2);
 		Future<Integer> future = ex.submit(new GitHubDetails());
-		System.out.println(future);
+		System.out.println(future.get());
 		//future.cancel(true);
 		//future.isCancelled();
 		//System.out.println(future.isDone());
