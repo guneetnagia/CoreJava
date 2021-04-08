@@ -10,9 +10,9 @@ public class ExceptionEx {
 		try{
 			x = scanner.nextInt();
 			y = scanner.nextInt();
-			/*if(y==0){
+			if(y==0){
 				throw new ArithmeticException("java.lang.ArithmeticException: / by zero");
-			}*/
+			}
 			System.out.println(x/y);
 		}
 		catch(InputMismatchException ime){

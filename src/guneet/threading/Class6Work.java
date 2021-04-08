@@ -14,7 +14,7 @@ public class Class6Work {
 	private List<Integer> list2 = new ArrayList<>();
 
 	public void stageOne(){
-		synchronized (lock1) {
+		synchronized(lock1){
 			try {
 				Thread.sleep(1);
 			} catch (InterruptedException e) {
