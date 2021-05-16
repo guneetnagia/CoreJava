@@ -4,13 +4,7 @@ public class Deadlock1 {
 	public static void main(String aaa[]) {
 		DeadLockDemo obj = new DeadLockDemo();
 		new Thread(() ->obj.method1()).start();
-		
-		new Thread(new Runnable() {
-			@Override
-				public void run() {
-					obj.method2();
-				}
-			}).start();
+		new Thread(() ->obj.method2()).start();
 		
 	}
 }
