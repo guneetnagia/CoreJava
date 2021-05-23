@@ -1,4 +1,4 @@
-package interviewCogni;
+package online.cts;
 
 public final class Rectangle {
 
